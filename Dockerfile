@@ -20,6 +20,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
   gperf \
   libncurses5-dev
 
+# Link python
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
 # Install Moddable
 ENV MODDABLE /root/moddable
 WORKDIR /root
