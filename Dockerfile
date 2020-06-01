@@ -5,6 +5,7 @@ RUN apt-get -y update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
   git \
   gcc \
+  sudo \
   build-essential \
   libgtk-3-dev \
   python3-pip \
