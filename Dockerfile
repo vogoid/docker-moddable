@@ -7,10 +7,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
   gcc \
   build-essential \
   libgtk-3-dev \
-  python \
-  python-pip \
-  python-setuptools \
-  python-serial \
+  python3-pip \
+  python3-setuptools \
+  python3-serial \
   wget \
   flex \
   bison \
