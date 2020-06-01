@@ -38,6 +38,7 @@ RUN mkdir /root/esp32
 WORKDIR /root/esp32
 RUN git clone -b v3.3.2 --recursive https://github.com/espressif/esp-idf.git
 RUN python -m pip install --user -r $IDF_PATH/docs/requirements.txt
+ENV PATH $PATH:~/esp32/xtensa-esp32-elf/bin:$IDF_PATH/tools
 
 # Xtensa toolchain
 ENV PATH $PATH:/root/esp32/xtensa-esp32-elf/bin
