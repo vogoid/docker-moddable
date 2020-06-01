@@ -8,6 +8,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
   sudo \
   build-essential \
   libgtk-3-dev \
+  python3 \
   python3-pip \
   python3-setuptools \
   python3-serial \
