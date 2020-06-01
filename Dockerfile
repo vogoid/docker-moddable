@@ -51,4 +51,4 @@ VOLUME ["/source"]
 
 WORKDIR /source
 
-CMD ["mcconfig"]
+ENTRYPOINT ["mcconfig"]
