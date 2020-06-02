@@ -24,28 +24,28 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
 # Install Moddable
-ENV MODDABLE /root/moddable
-WORKDIR /root
+ENV MODDABLE $HOME/moddable
+WORKDIR $HOME
 RUN git clone https://github.com/Moddable-OpenSource/moddable.git
-WORKDIR /root/moddable/build/makefiles/lin
+WORKDIR $HOME/moddable/build/makefiles/lin
 RUN make
-ENV PATH $PATH:${MODDABLE}/build/bin/lin/release
+ENV PATH $PATH:$MODDABLE/build/bin/lin/release
 RUN make install
 
 # Install ESP-IDF
-ENV IDF_PATH /root/esp32/esp-idf
-RUN mkdir /root/esp32 
-WORKDIR /root/esp32
+ENV IDF_PATH $HOME/esp32/esp-idf
+RUN mkdir $HOME/esp32 
+WORKDIR $HOME/esp32
 RUN git clone -b v3.3.2 --recursive https://github.com/espressif/esp-idf.git
 RUN python -m pip install --user -r $IDF_PATH/docs/requirements.txt
 ENV PATH $PATH:$IDF_PATH/tools
 
 # Xtensa toolchain
-ENV PATH $PATH:/root/esp32/xtensa-esp32-elf/bin
-WORKDIR /root/esp32
+ENV PATH $PATH:$HOME/esp32/xtensa-esp32-elf/bin
+WORKDIR $HOME/esp32
 RUN wget https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz && \
     tar xvzf xtensa-esp32-elf-linux64-1.22.0-80-g6c4433a-5.2.0.tar.gz
-RUN ls /root/esp32/xtensa-esp32-elf/bin
+RUN ls $HOME/esp32/xtensa-esp32-elf/bin
 
 # Build Folder
 RUN mkdir /source
