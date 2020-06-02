@@ -1,5 +1,7 @@
 FROM ubuntu:latest
 
+ENV HOME /root
+
 # Install dependencies
 RUN apt-get -y update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
