@@ -28,7 +28,7 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 # Install Moddable
 ENV MODDABLE $HOME/moddable
 WORKDIR $HOME
-RUN git clone https://github.com/Moddable-OpenSource/moddable.git
+RUN git clone -b OS201230 https://github.com/Moddable-OpenSource/moddable.git
 WORKDIR $HOME/moddable/build/makefiles/lin
 RUN make
 ENV PATH $PATH:$MODDABLE/build/bin/lin/release
